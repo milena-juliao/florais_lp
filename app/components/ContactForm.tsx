@@ -1,5 +1,7 @@
 "use client"
 import React, { useState } from "react";
+import Image from "next/image";
+
 
 const ContactForm: React.FC = () => {
   const [name, setName] = useState("");
@@ -26,29 +28,27 @@ const ContactForm: React.FC = () => {
 
   const handleOption = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setOptionSelected(e.target.value);
-    console.log(e.target.value);
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const phoneNumber = "";
+    const phoneNumber = "5519971028869";
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-      `Olá, meu nome é ${name}./n
-      E eu gostaria do conhecer mais sobre o ${optionSelected}!/n
-      Pois acredito que poderia me ajudar com ${message}`
+      `Olá, meu nome é *${name}*.\n\n*Qual tratamento te interessou mais?*\n${optionSelected}!\n\n*Como posso te ajudar?*\n${message}`
     )}`;
     window.open(url, "_blank");
     setName("");
     setMessage("");
+    setOptionSelected("");
   };
 
 
   return (
-    <section className=" bg-brownEarth mx-auto py-16 text-gray-800" id="contact">
-      <h2 className="text-3xl font-bold text-center">Agende sua consulta!</h2>
-      <p className="font-bold text-center">Me conte como posso te ajudar.</p>
+    <section className="relative bg-brownEarth mx-auto py-16 text-gray-800" id="contact">
+      <h2 className="text-4xl font-bold text-center mb-3">Quero te conhecer melhor!</h2>
+      <p className="text-center text-md">Preencha os campos abaixo.</p>
       <form
-        className="mt-8 max-w-lg mx-auto space-y-4"
+        className="relative mt-8 max-w-lg mx-auto z-10"
         onSubmit={handleSubmit}
       >
         <input
@@ -61,7 +61,7 @@ const ContactForm: React.FC = () => {
         />
 
         <select
-          className={`outline-purple-300 w-full p-3 border rounded-md ${optionSelected === "" ? 'text-gray-400' : 'text-gray-800' }`}
+          className={`outline-purple-300 w-full p-3 border rounded-md ${optionSelected === "" ? 'text-gray-400' : 'text-gray-800'} mt-4`}
           value={optionSelected}
           onChange={handleOption}
         >
@@ -76,19 +76,28 @@ const ContactForm: React.FC = () => {
 
         <textarea
           placeholder="Atualmente, em que eu poderia te ajudar?"
-          className="outline-purple-300 w-full p-3 border rounded-md"
+          className="outline-purple-300 w-full p-3 border rounded-md mt-4"
           rows={4}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           required
         ></textarea>
+
+        <p className="text-center mt-8">Você será redirecionado para o Whatsapp.</p>
         <button
           type="submit"
-          className="w-full bg-purple-500 text-white py-3 rounded-md hover:bg-purple-600"
+          className="w-full bg-purple-500 text-white py-3 rounded-md hover:bg-purple-600 mt-2"
         >
           Enviar
         </button>
       </form>
+      <Image
+        src="/flor_form.svg"
+        alt="Sobre nós"
+        width={200}
+        height={200}
+        className="absolute bottom-0 right-0 w-3/4 opacity-5 z-1 "
+      />
     </section>
   );
 };

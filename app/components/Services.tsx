@@ -22,12 +22,12 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section className="bg-[url('/bg_servicos.png')] bg-cover bg-center">
-      <div className="flex flex-col items-center justify-center p-28 bg-opacity-80 bg-brownEarth">
+    <section id="services" className="bg-[url('/bg_servicos.png')] bg-cover bg-center">
+      <div className="flex flex-col items-center justify-center py-28 px-10 lg:px-28 bg-opacity-80 bg-brownEarth">
         <h2 className="text-3xl font-semibold text-center text-gray-800 mb-20">
           Serviços
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-32">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-32">
           {services.map((service, index) => (
             <div
               key={index}
@@ -37,7 +37,7 @@ const Services: React.FC = () => {
               <h3 className="text-xl font-bold text-gray-800 text-center">
                 {service.title}
               </h3>
-              <p className="text-gray-600 text-center mt-2">
+              <p className="text-gray-600 text-center mt-2 text-3lg lg:text-lg">
                 {service.description}
               </p>
             </div>
