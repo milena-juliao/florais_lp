@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import Link from "next/link";
 
 const Footer: React.FC = () => {
     return (
@@ -15,7 +16,7 @@ const Footer: React.FC = () => {
 
                     {/* Coluna 2 - Links */}
                     <div className="flex gap-6 justify-center md:justify-end items-center">
-                        <a
+                        <Link
                             href="https://github.com/milena-juliao/florais_lp/tree/main/app/components"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -23,8 +24,8 @@ const Footer: React.FC = () => {
                         >
                             <FontAwesomeIcon icon={faGithub} className="w-5 h-5" />
                             <span>Acesse o projeto no GitHub</span>
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                             href="https://www.linkedin.com/in/milena-juliao/"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -32,7 +33,7 @@ const Footer: React.FC = () => {
                         >
                             <FontAwesomeIcon icon={faLinkedin} className="w-5 h-5" />
                             <span>Conecte-se comigo no LinkedIn</span>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

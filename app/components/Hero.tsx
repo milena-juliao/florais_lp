@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 const Hero: React.FC = () => {
     return (
@@ -12,10 +13,10 @@ const Hero: React.FC = () => {
                 <p className="text-lg text-gray-700 mt-10 lg:mt-4 lg:w-1/2">
                     Conecte-se com sua essência através de métodos naturais que estimulam o seu autoconhecimento para superar seus desafios diários.
                 </p>
-                <a href="#about" className="absolute bottom-0 flex flex-col items-center text-gray-600 w-full">
+                <Link href="#about" className="absolute bottom-0 flex flex-col items-center text-gray-600 w-full">
                     Clique para conhecer mais
                     <FontAwesomeIcon icon={faChevronDown} className="w-14 h-14 mt-2 animate-bounce pointer-events-none"/>
-                </a>
+                </Link>
             </div>
         </section>
     );
