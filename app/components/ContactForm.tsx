@@ -44,9 +44,9 @@ const ContactForm: React.FC = () => {
 
 
   return (
-    <section className="relative bg-brownEarth mx-auto py-16 text-gray-800" id="contact">
-      <h2 className="text-4xl font-bold text-center mb-3">Quero te conhecer melhor!</h2>
-      <p className="text-center text-md">Preencha os campos abaixo.</p>
+    <section className="relative bg-brownEarth mx-auto py-standard-lg px-standard-mobile lg:px-standard-lg scroll-mt-28 text-gray-800" id="contact">
+      <h2 className="text-standard-title-mobile lg:text-standard-title-lg font-bold text-center mb-standard-title">Quero te conhecer melhor!</h2>
+      <p className="text-center text-standard-p-mobile lg:text-standard-p-lg">Preencha os campos abaixo.</p>
       <form
         className="relative mt-8 max-w-lg mx-auto z-10"
         onSubmit={handleSubmit}
@@ -83,7 +83,7 @@ const ContactForm: React.FC = () => {
           required
         ></textarea>
 
-        <p className="text-center mt-8">Você será redirecionado para o Whatsapp.</p>
+        <p className="text-center mt-8 text-standard-p-mobile lg:text-standard-p-lg">Você será redirecionado para o Whatsapp.</p>
         <button
           type="submit"
           className="w-full bg-purple-500 text-white py-3 rounded-md hover:bg-purple-600 mt-2"

@@ -16,6 +16,19 @@ export default {
         brownEarth: "#D7CCC8",
         white: "#FFFFFF"
       },
+      padding:{
+        'standard-lg': '5rem',
+        'standard-mobile': '1rem',
+      },
+      margin:{
+        'standard-title': '2rem',
+      },
+      fontSize:{
+        'standard-title-lg': '2rem',
+        'standard-title-mobile': '1.5rem',
+        'standard-p-lg': '1.2rem',
+        'standard-p-mobile': '.88rem',
+      }
     },
   },
   plugins: [],

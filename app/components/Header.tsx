@@ -12,8 +12,8 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="bg-brownEarth fixed top-0 w-full h-16 lg:h-auto z-50 text-gray-800">
-      <div className="container relative shadow-md mx-auto flex items-center justify-between py-2 lg:py-4 px-10">
+    <header className="bg-brownEarth fixed top-0 w-full  z-50 text-gray-800">
+      <div className="container relative shadow-md mx-auto flex items-center justify-between py-4 px-standard-mobile lg:px-standard-lg">
         <Link href="/">
           <img src="/logo.png" alt="Priscilla Piccin - Radiestesista Terapêutica" className="h-12 lg:h-16" />
         </Link>
