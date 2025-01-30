@@ -1,8 +1,11 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHandSparkles, faHandHoldingHand, faSpa } from '@fortawesome/free-solid-svg-icons';
+import { faHandSparkles, faHandHoldingHand, faSpa, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 const Services: React.FC = () => {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
   const services = [
     {
       title: "Radiestesia",
@@ -21,23 +24,38 @@ const Services: React.FC = () => {
     },
   ];
 
+  const toggleDescription = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
   return (
-    <section id="services" className="bg-[url('/bg_servicos.png')] bg-cover bg-center">
-      <div className="flex flex-col items-center justify-center py-standard-lg px-standard-mobile lg:px-standard-lg scroll-mt-28 bg-opacity-80 bg-brownEarth">
-        <h2 className="text-standard-title-mobile lg:text-standard-title-lg font-semibold text-center text-gray-800 mb-standard-title">
+    <section id="services" className="bg-[url('/bg_servicos.png')] bg-cover bg-center h-screen">
+      <div className="flex flex-col items-center justify-center py-standard-lg px-standard-mobile lg:px-standard-lg scroll-mt-28 bg-beige bg-opacity-60 dark:bg-gray-800 dark:bg-opacity-50 h-screen">
+        <h2 className="text-standard-title-mobile lg:text-standard-title-lg font-semibold text-center text-theme mb-standard-title">
           Serviços
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-32">
+        <div className="w-full flex flex-col lg:flex-row gap-10 lg:gap-32">
           {services.map((service, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-300 hover:scale-105"
+              className="relative w-full flex flex-col items-start lg:items-center justify-center bg-theme p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-300 lg:hover:scale-105"
+              onClick={() => toggleDescription(index)}
             >
-              <FontAwesomeIcon icon={service.icon} className="h-16 w-16 mb-5 text-brownEarth" />
-              <h3 className="text-xl font-bold text-gray-800 text-center">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 text-center mt-2 text-standard-p-mobile lg:text-standard-p-lg">
+              <div className="flex items-center lg:flex-col">
+                <FontAwesomeIcon icon={service.icon} className="h-8 w-8 mr-5 lg:mr-0 lg:h-16 lg:w-16 text-theme" />
+                <h3 className="text-xl font-bold text-theme text-center">
+                  {service.title}
+                </h3>
+
+                <div className="absolute right-0 flex items-center mr-6 gap-2 cursor-pointer lg:hidden">
+                  <FontAwesomeIcon
+                    icon={expandedIndex === index ? faChevronUp : faChevronDown}
+                    className="text-theme"
+                  />
+                </div>
+              </div>
+
+              <p className={`${expandedIndex === index ? "flex" : "hidden"} lg:flex text-theme text-justify lg:text-center mt-2 text-standard-p-mobile lg:text-standard-p-lg`}>
                 {service.description}
               </p>
             </div>
@@ -47,6 +65,5 @@ const Services: React.FC = () => {
     </section>
   );
 };
-
 
 export default Services;

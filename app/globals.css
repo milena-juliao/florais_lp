@@ -19,3 +19,11 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.bg-theme {
+  @apply bg-brownEarth dark:bg-brownEarthStrong;
+}
+
+.text-theme {
+  @apply text-gray-800 dark:text-beige;
+}

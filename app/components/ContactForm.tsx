@@ -44,9 +44,9 @@ const ContactForm: React.FC = () => {
 
 
   return (
-    <section className="relative bg-brownEarth mx-auto py-standard-lg px-standard-mobile lg:px-standard-lg scroll-mt-28 text-gray-800" id="contact">
-      <h2 className="text-standard-title-mobile lg:text-standard-title-lg font-bold text-center mb-standard-title">Quero te conhecer melhor!</h2>
-      <p className="text-center text-standard-p-mobile lg:text-standard-p-lg">Preencha os campos abaixo.</p>
+    <section className="relative bg-theme mx-auto py-standard-lg px-standard-mobile lg:px-standard-lg scroll-mt-28 h-screen" id="contact">
+      <h2 className="text-standard-title-mobile lg:text-standard-title-lg font-bold text-center mb-standard-title text-theme">Quero te conhecer melhor!</h2>
+      <p className="text-center text-standard-p-mobile lg:text-standard-p-lg text-theme">Preencha os campos abaixo.</p>
       <form
         className="relative mt-8 max-w-lg mx-auto z-10"
         onSubmit={handleSubmit}
@@ -54,14 +54,14 @@ const ContactForm: React.FC = () => {
         <input
           type="text"
           placeholder="Seu nome"
-          className="outline-purple-300 w-full p-3 border rounded-md"
+          className="outline-brownEarthStrong w-full p-3 border rounded-md text-gray-800 bg-beige"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
         />
 
         <select
-          className={`outline-purple-300 w-full p-3 border rounded-md ${optionSelected === "" ? 'text-gray-400' : 'text-gray-800'} mt-4`}
+          className={`outline-brownEarthStrong w-full p-3 border rounded-md ${optionSelected === "" ? 'text-gray-400' : 'text-gray-800'} mt-4 bg-beige`}
           value={optionSelected}
           onChange={handleOption}
         >
@@ -76,17 +76,17 @@ const ContactForm: React.FC = () => {
 
         <textarea
           placeholder="Atualmente, em que eu poderia te ajudar?"
-          className="outline-purple-300 w-full p-3 border rounded-md mt-4"
+          className="outline-brownEarthStrong w-full p-3 border rounded-md mt-4 text-gray-800 bg-beige"
           rows={4}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           required
         ></textarea>
 
-        <p className="text-center mt-8 text-standard-p-mobile lg:text-standard-p-lg">Você será redirecionado para o Whatsapp.</p>
+        <p className="text-center mt-8 text-standard-p-mobile lg:text-standard-p-lg text-theme">Você será redirecionado para o Whatsapp.</p>
         <button
           type="submit"
-          className="w-full bg-purple-500 text-white py-3 rounded-md hover:bg-purple-600 mt-2"
+          className="w-full bg-brownEarthStrong dark:bg-brownEarth text-white py-3 rounded-md hover:bg-opacity-80 mt-2"
         >
           Enviar
         </button>

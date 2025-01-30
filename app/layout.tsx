@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "./utils/SmoothScroll";
+import DarkModeToggle from "./utils/DarkMode";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

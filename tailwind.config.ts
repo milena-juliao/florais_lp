@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,7 +14,8 @@ export default {
         purpleLavender: "#E8DAEF",
         blueCalm: "#D4E6F1",
         beige: "#F9E4D7",
-        brownEarth: "#D7CCC8",
+        brownEarth: "#a68f71",
+        brownEarthStrong: "#5c4736",
         white: "#FFFFFF"
       },
       padding:{
@@ -26,7 +28,7 @@ export default {
       fontSize:{
         'standard-title-lg': '2rem',
         'standard-title-mobile': '1.5rem',
-        'standard-p-lg': '1.2rem',
+        'standard-p-lg': '1rem',
         'standard-p-mobile': '.88rem',
       }
     },
