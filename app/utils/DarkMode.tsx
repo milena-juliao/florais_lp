@@ -20,7 +20,7 @@ const DarkModeToggle = () => {
             onClick={toggleTheme}
             className="p-2 rounded-lg bg-opacity-20 bg-slate-50 transition-colors"
         >
-            {isDarkMode ? <FontAwesomeIcon icon={faSun} className="text-gray-100" /> : <FontAwesomeIcon icon={faMoon} className="text-gray-700" />}
+            {isDarkMode ? <FontAwesomeIcon icon={faSun} className="text-beige" /> : <FontAwesomeIcon icon={faMoon} className="text-black" />}
         </button>
     );
 };

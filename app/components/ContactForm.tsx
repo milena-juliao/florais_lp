@@ -44,11 +44,11 @@ const ContactForm: React.FC = () => {
 
 
   return (
-    <section className="relative bg-theme mx-auto py-standard-lg px-standard-mobile lg:px-standard-lg scroll-mt-20" id="contact">
-      <h2 className="text-standard-title-mobile lg:text-standard-title-lg font-bold text-center mb-1 text-theme">Quero te conhecer melhor!</h2>
+    <section className="flex flex-col items-center bg-theme mx-auto py-standard-lg px-standard-mobile lg:px-standard-lg scroll-mt-20" id="contact">
+      <h2 className="text-standard-title-mobile px-6 lg:text-standard-title-lg font-bold mb-[1rem] bg-beige text-brownEarthStrong text-center">Quero te conhecer melhor!</h2>
       <p className="text-center text-standard-p-mobile lg:text-standard-p-lg text-theme mb-standard-title">Preencha os campos abaixo.</p>
       <form
-        className="relative max-w-lg mx-auto z-10"
+        className="max-w-lg mx-auto z-10"
         onSubmit={handleSubmit}
       >
         <input
@@ -91,13 +91,13 @@ const ContactForm: React.FC = () => {
           Enviar
         </button>
       </form>
-      <Image
+      {/* <Image
         src="/flor_form.svg"
         alt="Sobre nós"
         width={200}
         height={200}
         className="absolute bottom-0 right-0 w-3/4 opacity-5 z-1 "
-      />
+      /> */}
     </section>
   );
 };
