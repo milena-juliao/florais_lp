@@ -30,15 +30,15 @@ const Services: React.FC = () => {
 
     return (
         <section id="services" className="bg-[url('/bg_herbs.png')] bg-cover bg-right lg:bg-center scroll-mt-20">
-            <div className="flex flex-col items-center justify-between py-standard-lg px-standard-mobile lg:px-standard-lg backdrop-blur-sm">
+            <div className="flex flex-col items-center justify-center py-standard-lg px-standard-mobile lg:px-standard-lg backdrop-blur-sm">
                 <h2 className="text-standard-title-mobile px-4 lg:text-standard-title-lg font-bold mb-standard-title bg-beige text-brownEarthStrong">
                     Serviços
                 </h2>
-                <div className="w-full flex flex-col lg:flex-row gap-10 lg:gap-32">
+                <div className="w-full flex flex-col items-center justify-center lg:flex-row gap-10">
                     {services.map((service, index) => (
                         <div
                             key={index}
-                            className="relative w-full flex flex-col items-start lg:items-center justify-center bg-greenOlive p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-300 lg:hover:scale-105"
+                            className="md:w-96 flex flex-col items-start lg:items-center justify-center bg-greenOlive p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-300 lg:hover:scale-105"
                             onClick={() => toggleDescription(index)}
                         >
                             <div className="flex items-center lg:flex-col">
