@@ -45,23 +45,23 @@ const ContactForm: React.FC = () => {
 
   return (
     <section className="relative bg-theme mx-auto py-standard-lg px-standard-mobile lg:px-standard-lg scroll-mt-20" id="contact">
-      <h2 className="text-standard-title-mobile lg:text-standard-title-lg font-bold text-center mb-standard-title text-theme">Quero te conhecer melhor!</h2>
-      <p className="text-center text-standard-p-mobile lg:text-standard-p-lg text-theme">Preencha os campos abaixo.</p>
+      <h2 className="text-standard-title-mobile lg:text-standard-title-lg font-bold text-center mb-1 text-theme">Quero te conhecer melhor!</h2>
+      <p className="text-center text-standard-p-mobile lg:text-standard-p-lg text-theme mb-standard-title">Preencha os campos abaixo.</p>
       <form
-        className="relative mt-8 max-w-lg mx-auto z-10"
+        className="relative max-w-lg mx-auto z-10"
         onSubmit={handleSubmit}
       >
         <input
           type="text"
           placeholder="Seu nome"
-          className="outline-brownEarthStrong w-full p-3 border rounded-md text-gray-800 bg-beige"
+          className="outline-brownEarthStrong w-full p-3 border rounded-md text-gray-800 "
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
         />
 
         <select
-          className={`outline-brownEarthStrong w-full p-3 border rounded-md ${optionSelected === "" ? 'text-gray-400' : 'text-gray-800'} mt-4 bg-beige`}
+          className={`outline-brownEarthStrong w-full p-3 border rounded-md ${optionSelected === "" ? 'text-gray-400' : 'text-gray-800'} mt-4`}
           value={optionSelected}
           onChange={handleOption}
         >
@@ -76,7 +76,7 @@ const ContactForm: React.FC = () => {
 
         <textarea
           placeholder="Atualmente, em que eu poderia te ajudar?"
-          className="outline-brownEarthStrong w-full p-3 border rounded-md mt-4 text-gray-800 bg-beige"
+          className="outline-brownEarthStrong w-full p-3 border rounded-md mt-4 text-gray-800"
           rows={4}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
@@ -86,7 +86,7 @@ const ContactForm: React.FC = () => {
         <p className="text-center mt-8 text-standard-p-mobile lg:text-standard-p-lg text-theme">Você será redirecionado para o Whatsapp.</p>
         <button
           type="submit"
-          className="w-full bg-brownEarthStrong dark:bg-brownEarth text-white py-3 rounded-md hover:bg-opacity-80 mt-2"
+          className="w-full bg-brownEarthStrong dark:bg-[#332A20] text-white py-3 rounded-md hover:bg-opacity-80 mt-2"
         >
           Enviar
         </button>

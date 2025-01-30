@@ -16,6 +16,7 @@ export default {
         beige: "#F9E4D7",
         brownEarth: "#a68f71",
         brownEarthStrong: "#5c4736",
+        greenOlive: "#A4C3B2",
         white: "#FFFFFF"
       },
       padding:{

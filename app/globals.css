@@ -25,5 +25,5 @@ body {
 }
 
 .text-theme {
-  @apply text-gray-800 dark:text-beige;
+  @apply text-gray-800 dark:text-[#D1B48F];
 }

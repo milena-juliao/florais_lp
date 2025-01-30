@@ -11,20 +11,21 @@ const About: React.FC = () => {
         <div className="flex flex-col items-center justify-center gap-5 text-justify lg:gap-7 lg:w-2/3 ">
           <p className="text-theme text-standard-p-mobile lg:text-standard-p-lg">
             Sou <span className="font-semibold">Priscilla Piccin</span>, uma apaixonada pelo cuidado humano e dedicada a auxiliar meus pacientes em suas jornadas de autoconhecimento e bem-estar. Minha prática terapêutica integra a Radiestesia, a Psicanálise e o trabalho com Florais, buscando oferecer um suporte holístico e personalizado para cada indivíduo.
-            <br/>
-            <br/>
+            <br />
+            <br />
             Acredito profundamente no potencial de transformação que reside em cada um de nós. Movida por um amor genuíno pela vida e uma busca incessante por evolução, dedico-me a aprimorar minhas habilidades e conhecimentos para oferecer um acompanhamento terapêutico eficaz e acolhedor.
           </p>
-          
-          <div className="float-right w-36 lg:w-48 text-center">
+
+          <div className="relative w-36 lg:w-48 text-center">
+            <div className="absolute top-3 left-2 w-full h-60 border-2 border-brownEarthStrong dark:border-brownEarth rounded-lg"></div>
             <Image
               src="/sobre_priscilla_piccin.png"
               alt="Foto Priscilla Piccin"
               width={300}
               height={300}
-              className="rounded-lg shadow-xl z-10"
+              className="relative rounded-lg shadow-xl mb-4 filter brightness-[.75] sepia-[.15] saturate-150"
             />
-            <span className="text-xs">Foto: Priscilla Piccin - Terapeuta Radiestesista</span>
+            <span className="text-xs text-theme">Foto: Priscilla Piccin - Terapeuta Radiestesista</span>
           </div>
         </div>
       </div>
