@@ -44,7 +44,7 @@ const ContactForm: React.FC = () => {
 
 
   return (
-    <section className="relative bg-theme mx-auto py-standard-lg px-standard-mobile lg:px-standard-lg scroll-mt-28 h-screen" id="contact">
+    <section className="relative bg-theme mx-auto py-standard-lg px-standard-mobile lg:px-standard-lg scroll-mt-20" id="contact">
       <h2 className="text-standard-title-mobile lg:text-standard-title-lg font-bold text-center mb-standard-title text-theme">Quero te conhecer melhor!</h2>
       <p className="text-center text-standard-p-mobile lg:text-standard-p-lg text-theme">Preencha os campos abaixo.</p>
       <form

@@ -3,7 +3,7 @@ import React from "react";
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="bg-theme py-standard-lg px-standard-mobile lg:px-standard-lg scroll-mt-28 h-screen">
+    <section id="about" className="bg-theme py-standard-lg px-standard-mobile lg:px-standard-lg scroll-mt-20">
       <h2 className="text-standard-title-mobile lg:text-standard-title-lg font-semibold text-center text-theme mb-standard-title">
         Sobre
       </h2>

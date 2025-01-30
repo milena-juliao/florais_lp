@@ -29,8 +29,8 @@ const Services: React.FC = () => {
   };
 
   return (
-    <section id="services" className="bg-[url('/bg_servicos.png')] bg-cover bg-center h-screen">
-      <div className="flex flex-col items-center justify-center py-standard-lg px-standard-mobile lg:px-standard-lg scroll-mt-28 bg-beige bg-opacity-60 dark:bg-gray-800 dark:bg-opacity-50 h-screen">
+    <section id="services" className="bg-[url('/bg_servicos.png')] bg-cover bg-center scroll-mt-20">
+      <div className="flex flex-col items-center justify-center py-standard-lg px-standard-mobile lg:px-standard-lg bg-beige bg-opacity-60 dark:bg-gray-800 dark:bg-opacity-50">
         <h2 className="text-standard-title-mobile lg:text-standard-title-lg font-semibold text-center text-theme mb-standard-title">
           Serviços
         </h2>

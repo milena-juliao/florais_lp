@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Hero: React.FC = () => {
     return (
-        <section className="bg-[url('/bg_hero.png')] bg-cover bg-center text-center h-screen scroll-mt-28">
+        <section className="bg-[url('/bg_hero.png')] bg-cover bg-center text-center h-screen scroll-mt-20">
             <div className="flex flex-col items-center justify-center px-standard-mobile lg:px-standard-lg h-screen bg-beige bg-opacity-60 dark:bg-brownEarthStrong dark:bg-opacity-50">
                 <h1 className="text-standard-title-mobile lg:text-standard-title-lg font-bold text-theme mb-standard-title">
                     Harmonize sua mente, corpo e espírito
