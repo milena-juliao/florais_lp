@@ -7,7 +7,7 @@ const About: React.FC = () => {
       <h2 className="text-standard-title-mobile px-4 lg:text-standard-title-lg font-bold mb-standard-title bg-beige text-brownEarthStrong">
         Sobre
       </h2>
-      <div className="flex flex-col items-center justify-center gap-5 text-justify lg:gap-7 lg:w-2/3 ">
+      <div className="flex flex-col items-center justify-center gap-5 text-justify lg:gap-7 md:w-2/3 ">
         <p className="text-theme text-standard-p-mobile lg:text-standard-p-lg">
           Sou <span className="font-semibold">Priscilla Piccin</span>, uma apaixonada pelo cuidado humano e dedicada a auxiliar meus pacientes em suas jornadas de autoconhecimento e bem-estar. Minha prática terapêutica integra a Radiestesia, a Psicanálise e o trabalho com Florais, buscando oferecer um suporte holístico e personalizado para cada indivíduo.
           <br />

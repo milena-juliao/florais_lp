@@ -38,7 +38,7 @@ const Services: React.FC = () => {
                     {services.map((service, index) => (
                         <div
                             key={index}
-                            className="md:w-96 flex flex-col items-start lg:items-center justify-center bg-greenOlive p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-300 lg:hover:scale-105"
+                            className="w-full md:w-96 flex flex-col items-start lg:items-center justify-center bg-greenOlive p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-300 lg:hover:scale-105"
                             onClick={() => toggleDescription(index)}
                         >
                             <div className="flex items-center lg:flex-col">
