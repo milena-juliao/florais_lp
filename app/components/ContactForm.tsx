@@ -31,7 +31,8 @@ const ContactForm: React.FC = () => {
             setFormData({ name: "", contato: "", message: "", optionSelected: "" });
             alert('Formulário enviado com sucesso!');
         } catch (error) {
-            alert('Erro ao enviar o formulário.');
+            console.error('Erro ao enviar o formulário:', error);
+            alert('Erro ao enviar o formulário:');
         }
     };
 
