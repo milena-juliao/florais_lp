@@ -23,19 +23,6 @@ const ContactForm: React.FC = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const generateWhatsAppLink = () => {
-        const phoneNumber = "5519971028869";
-        const message = `Olá, meu nome é *${formData.name}*.
-
-*Qual tratamento te interessou mais?*
-${formData.optionSelected}!
-
-*Como posso te ajudar?*
-${formData.message}`;
-
-        return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    };
-
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
