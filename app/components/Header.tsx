@@ -22,32 +22,42 @@ const Header: React.FC = () => {
     const menuItems = [
         { href: "#about", label: "Sobre" },
         { href: "#services", label: "Serviços" },
-        { href: "#contact", label: "Agendar Consulta" }
+        { href: "#contact", label: "Entrar em contato" }
     ];
 
     return (
-        <header className="bg-theme fixed top-0 w-full z-50 text-theme dark:text-gray-100 shadow-md">
-            <div className="container relative mx-auto flex items-center justify-between py-1 px-standard-mobile lg:px-standard-lg">
+        <header className="fixed top-0 w-full z-50 bg-theme text-theme dark:text-beige shadow-md">
+            <div className="container relative mx-auto flex items-center justify-between px-standard-mobile py-1 lg:px-standard-lg">
                 <Link href="/">
-                    <img src="/logo.png" alt="Priscilla Piccin - Radiestesista Terapêutica" className="h-20" />
+                    <img 
+                        src="/logo.png" 
+                        alt="Priscilla Piccin - Radiestesista Terapêutica" 
+                        className="h-20" 
+                    />
                 </Link>
 
+                {/* Mobile Menu Button */}
                 <div className="flex items-center gap-4 lg:hidden">
                     <button
                         onClick={toggleMenu}
-                        className="text-theme focus:outline-none transition-all duration-300"
+                        className="transition-all duration-300 focus:outline-none text-theme"
                     >
-                        <FontAwesomeIcon icon={faBars} className="w-5 h-5" />
+                        <FontAwesomeIcon icon={faBars} className="h-5 w-5" />
                     </button>
                     <DarkModeToggle />
                 </div>
 
-                {/* Menu Desktop */}
-                <nav className="lg:flex items-center gap-4 hidden">
+                {/* Desktop Menu */}
+                <nav className="hidden items-center gap-4 lg:flex">
                     <ul className="flex space-x-6">
                         {menuItems.map((item) => (
                             <li key={item.href}>
-                                <Link href={item.href} className="text-theme hover:underline hover:underline-offset-8">{item.label}</Link>
+                                <Link 
+                                    href={item.href} 
+                                    className="text-theme hover:underline hover:underline-offset-8"
+                                >
+                                    {item.label}
+                                </Link>
                             </li>
                         ))}
                     </ul>
@@ -55,11 +65,11 @@ const Header: React.FC = () => {
                 </nav>
             </div>
 
-            {/* Menu Mobile */}
+            {/* Mobile Menu */}
             <AnimatePresence>
                 {isMenuOpen && (
                     <motion.div
-                        className="absolute right-0 mt-2 lg:hidden bg-transparente rounded-lg p-4"
+                        className="absolute right-0 mt-2 rounded-lg bg-transparente p-4 lg:hidden"
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
@@ -74,9 +84,13 @@ const Header: React.FC = () => {
                                     animate="visible"
                                     exit="hidden"
                                     variants={menuVariants}
-                                    className="p-2 rounded-lg text-center shadow-md bg-beige bg-opacity-50"
+                                    className="rounded-lg bg-beige bg-opacity-50 p-2 text-center shadow-md"
                                 >
-                                    <Link href={item.href} className="text-theme font-semibold p-1" onClick={closeMenu}>
+                                    <Link 
+                                        href={item.href} 
+                                        className="p-1 font-semibold text-theme"
+                                        onClick={closeMenu}
+                                    >
                                         {item.label}
                                     </Link>
                                 </motion.li>

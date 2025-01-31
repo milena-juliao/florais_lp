@@ -5,17 +5,17 @@ import Link from "next/link";
 
 const Hero: React.FC = () => {
     return (
-        <section className="bg-[url('/bg_herbs.png')] bg-cover bg-center text-center h-screen scroll-mt-20">
-            <div className="flex flex-col items-center justify-center px-standard-mobile lg:px-standard-lg h-screen backdrop-blur-sm">
-                <h1 className="text-lg px-4 py-2 lg:text-standard-title-lg font-bold text-beige mb-standard-title bg-theme">
+        <section className="h-screen scroll-mt-20 bg-[url('/bg_herbs.png')] bg-cover bg-center text-center">
+            <div className="flex h-screen flex-col items-center justify-center px-standard-mobile backdrop-blur-sm lg:px-standard-lg bg-beige/30 dark:bg-black/50">
+                <h1 className="mb-standard-title bg-theme px-4 py-2 text-lg font-bold text-beige lg:text-standard-title-lg">
                     Harmonize sua mente, corpo e espírito
                 </h1>
-                <p className="text-standard-p-mobile lg:text-standard-p-lg py-2 text-brownEarthStrong w-4/5 lg:w-2/5 bg-beige px-4">
+                <p className="w-4/5 bg-beige px-4 py-2 text-standard-p-mobile text-brownEarthStrong lg:w-2/5 lg:text-standard-p-lg">
                     Conecte-se com sua essência através de métodos naturais que estimulam o seu autoconhecimento para superar seus desafios diários.
                 </p>
-                <Link href="#about" className="absolute bottom-0 flex flex-col items-center text-beige w-full">
+                <Link href="#about" className="absolute bottom-0 flex w-full flex-col items-center text-beige">
                     Clique para conhecer mais
-                    <FontAwesomeIcon icon={faChevronDown} className="w-14 h-14 mt-2 animate-bounce pointer-events-none"/>
+                    <FontAwesomeIcon icon={faChevronDown} className="pointer-events-none mt-2 h-14 w-14 animate-bounce" />
                 </Link>
             </div>
         </section>

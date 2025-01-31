@@ -20,14 +20,19 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Temas */
 .bg-theme {
     @apply bg-brownEarth dark:bg-brownEarthStrong;
 }
 
 .text-theme {
-    @apply text-brownEarthStrong dark:text-beige
+    @apply text-brownEarthStrong dark:text-beige;
 }
 
 .title-theme {
     @apply text-brownEarthStrong dark:text-[#D1B48F];
+}
+
+.input-theme {
+    @apply bg-beige bg-opacity-60 text-brownEarthStrong placeholder-brownEarthStrong dark:bg-opacity-30 dark:text-beige dark:placeholder-beige;
 }

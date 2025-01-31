@@ -29,12 +29,12 @@ const Services: React.FC = () => {
     };
 
     return (
-        <section id="services" className="bg-[url('/bg_herbs.png')] bg-cover bg-right lg:bg-center scroll-mt-20">
-            <div className="flex flex-col items-center justify-center py-standard-lg px-standard-mobile lg:px-standard-lg backdrop-blur-sm">
+        <section id="services" className="min-h-[26rem] bg-[url('/bg_herbs.png')] bg-cover bg-center lg:bg-center scroll-mt-20">
+            <div className="flex flex-col items-center justify-center px-standard-mobile py-standard-lg backdrop-blur-sm lg:px-standard-lg bg-beige/30 dark:bg-black/50">
                 <h2 className="text-standard-title-mobile px-4 lg:text-standard-title-lg font-bold mb-standard-title bg-beige text-brownEarthStrong">
                     Serviços
                 </h2>
-                <div className="w-full flex flex-col items-center justify-center lg:flex-row gap-10">
+                <div className="w-full min-h-[26rem] flex flex-col items-center justify-start lg:justify-center lg:flex-row gap-10">
                     {services.map((service, index) => (
                         <div
                             key={index}

@@ -1,105 +1,121 @@
-"use client"
+"use client";
 import React, { useState } from "react";
-// import Image from "next/image";
+import { InputMask } from '@react-input/mask';
+import { sendFormData } from "../services/formService";
 
+const servicesOptions = [
+    "Tratamento com Radiestesia",
+    "Tratamento com Psicanálise",
+    "Tratamento com Florais de Bach",
+    "Tratamento completo",
+    "Mais informações"
+];
 
 const ContactForm: React.FC = () => {
-  const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
-  const [optionSelected, setOptionSelected] = useState("");
+    const [formData, setFormData] = useState({
+        name: "",
+        contato: "",
+        message: "",
+        optionSelected: ""
+    });
 
-  const servicesOptions = [
-    {
-      option: "Tratamento com Radiestesia"
-    },
-    {
-      option: "Tratamento com Psicanálise"
-    },
-    {
-      option: "Tratamento com Florais de Bach"
-    },
-    {
-      option: "Tratamento completo"
-    },
-    {
-      option: "Mais informações"
-    },
-  ];
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
-  const handleOption = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setOptionSelected(e.target.value);
-  }
+    const generateWhatsAppLink = () => {
+        const phoneNumber = "5519971028869";
+        const message = `Olá, meu nome é *${formData.name}*.
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const phoneNumber = "5519971028869";
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-      `Olá, meu nome é *${name}*.\n\n*Qual tratamento te interessou mais?*\n${optionSelected}!\n\n*Como posso te ajudar?*\n${message}`
-    )}`;
-    window.open(url, "_blank");
-    setName("");
-    setMessage("");
-    setOptionSelected("");
-  };
+*Qual tratamento te interessou mais?*
+${formData.optionSelected}!
 
+*Como posso te ajudar?*
+${formData.message}`;
 
-  return (
-    <section className="flex flex-col items-center bg-theme mx-auto py-standard-lg px-standard-mobile lg:px-standard-lg scroll-mt-20" id="contact">
-      <h2 className="text-standard-title-mobile px-6 lg:text-standard-title-lg font-bold mb-[1rem] bg-beige text-brownEarthStrong text-center">Quero te conhecer melhor!</h2>
-      <p className="text-center text-standard-p-mobile lg:text-standard-p-lg text-theme mb-standard-title">Preencha os campos abaixo.</p>
-      <form
-        className="max-w-lg mx-auto z-10"
-        onSubmit={handleSubmit}
-      >
-        <input
-          type="text"
-          placeholder="Seu nome"
-          className="outline-brownEarthStrong w-full p-3 border rounded-md text-gray-800 "
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
+        return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    };
 
-        <select
-          className={`outline-brownEarthStrong w-full p-3 border rounded-md ${optionSelected === "" ? 'text-gray-400' : 'text-gray-800'} mt-4`}
-          value={optionSelected}
-          onChange={handleOption}
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        try {
+            const result = await sendFormData(formData);
+            console.log(result);
+            setFormData({ name: "", contato: "", message: "", optionSelected: "" });
+            alert('Formulário enviado com sucesso!');
+        } catch (error) {
+            alert('Erro ao enviar o formulário.');
+        }
+    };
+
+    return (
+        <section
+            id="contact"
+            className="flex flex-col items-center mx-auto py-standard-lg px-standard-mobile lg:px-standard-lg bg-theme scroll-mt-20"
         >
-          <option value="" className="text-gray-400">Qual tratamento te interessou mais?</option>
-          {
-            servicesOptions.map((servicesOptions, index) => (
-              <option key={index} value={servicesOptions.option} className="text-gray-800">{servicesOptions.option}</option>
-            ))
-          }
-        </select>
+            <h2 className="text-standard-title-mobile lg:text-standard-title-lg font-bold mb-4 bg-beige text-brownEarthStrong text-center px-6">
+                Quero te conhecer melhor!
+            </h2>
+            <p className="text-center text-standard-p-mobile lg:text-standard-p-lg text-theme mb-standard-title font-bold">
+                Preencha os campos abaixo.
+            </p>
+            <form className="flex flex-col items-center max-w-lg w-full mx-auto z-10" onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Seu nome"
+                    className="w-full p-3 rounded-md input-theme outline-none focus-within::shadow-md"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                />
+                <InputMask
+                    name="contato"
+                    placeholder="Whatsapp para contato"
+                    className="w-full p-3 mt-4 rounded-md input-theme outline-none focus-within::shadow-md"
+                    mask="(__) _ ____-____"
+                    replacement={{ _: /\d/ }}
+                    value={formData.contato}
+                    onChange={handleChange}
+                    required
+                />
+                <select
+                    name="optionSelected"
+                    className={`w-full p-3 rounded-md mt-4 input-theme outline-none focus:shadow-md`}
+                    value={formData.optionSelected}
+                    onChange={handleChange}
+                >
+                    <option value="" disabled>
+                        Qual tratamento te interessou mais?
+                    </option>
+                    {servicesOptions.map((option, index) => (
+                        <option key={index} value={option} className="text-brownEarthStrong">
+                            {option}
+                        </option>
+                    ))}
+                </select>
 
-
-        <textarea
-          placeholder="Atualmente, em que eu poderia te ajudar?"
-          className="outline-brownEarthStrong w-full p-3 border rounded-md mt-4 text-gray-800"
-          rows={4}
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          required
-        ></textarea>
-
-        <p className="text-center mt-8 text-standard-p-mobile lg:text-standard-p-lg text-theme">Você será redirecionado para o Whatsapp.</p>
-        <button
-          type="submit"
-          className="w-full bg-brownEarthStrong dark:bg-[#332A20] text-white py-3 rounded-md hover:bg-opacity-80 mt-2"
-        >
-          Enviar
-        </button>
-      </form>
-      {/* <Image
-        src="/flor_form.svg"
-        alt="Sobre nós"
-        width={200}
-        height={200}
-        className="absolute bottom-0 right-0 w-3/4 opacity-5 z-1 "
-      /> */}
-    </section>
-  );
+                <textarea
+                    name="message"
+                    placeholder="Atualmente, em que eu poderia te ajudar?"
+                    className="w-full p-3 rounded-md mt-4 input-theme outline-none focus:shadow-md"
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                ></textarea>
+                {/* <p className="text-center mt-8 text-standard-p-mobile lg:text-standard-p-lg text-theme font-bold">
+                    Você será redirecionado para o Whatsapp.
+                </p> */}
+                <button
+                    type="submit"
+                    className="w-1/2 py-3 rounded-md mt-2 bg-greenOlive text-white hover:bg-opacity-80"
+                >
+                    Enviar
+                </button>
+            </form>
+        </section>
+    );
 };
 
 export default ContactForm;
