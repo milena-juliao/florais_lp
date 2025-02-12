@@ -14,8 +14,11 @@ export const sendFormData = async (formData: { name: string; contato: string; op
             },
         });
 
-        const result = await response.text();
-        return result;
+        if (!response.ok) {
+            throw new Error(`Erro na requisição: ${response.statusText}`);
+        }
+
+        return await response.text();
     } catch (error) {
         console.error('Erro ao enviar os dados:', error);
         throw new Error('Erro ao enviar o formulário');
