@@ -1,4 +1,9 @@
-export const sendFormData = async (data: any) => {
+export const sendFormData = async (data: {
+    name: string;
+    contato: string;
+    message: string;
+    optionSelected: string;
+}) => {
     const apiUrlMessages = process.env.NEXT_PUBLIC_API_URL_MESSAGES;
 
     if (!apiUrlMessages) {
