@@ -1,26 +1,21 @@
-export const sendFormData = async (formData: { name: string; contato: string; optionSelected: string; message: string }) => {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+export const sendFormData = async (data: any) => {
+    const apiUrlMessages = process.env.NEXT_PUBLIC_API_URL_MESSAGES;
 
-    if (!apiUrl) {
+    if (!apiUrlMessages) {
         throw new Error('A variável NEXT_PUBLIC_API_URL não está definida.');
     }
 
-    try {
-        const response = await fetch(apiUrl, {
-            method: 'POST',
-            body: JSON.stringify(formData),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
+    const response = await fetch(apiUrlMessages, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    });
 
-        if (!response.ok) {
-            throw new Error(`Erro na requisição: ${response.statusText}`);
-        }
-
-        return await response.text();
-    } catch (error) {
-        console.error('Erro ao enviar os dados:', error);
-        throw new Error('Erro ao enviar o formulário');
+    if (!response.ok) {
+        throw new Error("Erro ao enviar o formulário");
     }
+
+    return response.json();
 };

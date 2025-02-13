@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { InputMask } from '@react-input/mask';
+import { InputMask } from "@react-input/mask";
 import { sendFormData } from "../services/formService";
 
 const servicesOptions = [
@@ -8,7 +8,7 @@ const servicesOptions = [
     "Tratamento com Psicanálise",
     "Tratamento com Florais de Bach",
     "Tratamento completo",
-    "Mais informações"
+    "Mais informações",
 ];
 
 const ContactForm: React.FC = () => {
@@ -16,23 +16,41 @@ const ContactForm: React.FC = () => {
         name: "",
         contato: "",
         message: "",
-        optionSelected: ""
+        optionSelected: "",
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const handleChange = (
+        e: React.ChangeEvent<
+            HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+        >
+    ) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const cleanPhoneNumber = (number: string) => {
+        return number.replace(/\D/g, "");
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        const formattedData = {
+            ...formData,
+            contato: cleanPhoneNumber(formData.contato),
+        };
+
         try {
-            const result = await sendFormData(formData);
+            const result = await sendFormData(formattedData);
             console.log(result);
-            setFormData({ name: "", contato: "", message: "", optionSelected: "" });
-            alert('Formulário enviado com sucesso!');
+            setFormData({
+                name: "",
+                contato: "",
+                message: "",
+                optionSelected: "",
+            });
+            alert("Formulário enviado com sucesso!");
         } catch (error) {
-            console.error('Erro ao enviar o formulário:', error);
-            alert('Erro ao enviar o formulário:');
+            console.error("Erro ao enviar o formulário:", error);
+            alert("Erro ao enviar o formulário:");
         }
     };
 
@@ -47,7 +65,10 @@ const ContactForm: React.FC = () => {
             <p className="text-center text-standard-p-mobile lg:text-standard-p-lg text-theme mb-standard-title font-bold">
                 Preencha os campos abaixo.
             </p>
-            <form className="flex flex-col items-center max-w-lg w-full mx-auto z-10" onSubmit={handleSubmit}>
+            <form
+                className="flex flex-col items-center max-w-lg w-full mx-auto z-10"
+                onSubmit={handleSubmit}
+            >
                 <input
                     type="text"
                     name="name"
@@ -77,7 +98,11 @@ const ContactForm: React.FC = () => {
                         Qual tratamento te interessou mais?
                     </option>
                     {servicesOptions.map((option, index) => (
-                        <option key={index} value={option} className="text-brownEarthStrong">
+                        <option
+                            key={index}
+                            value={option}
+                            className="text-brownEarthStrong"
+                        >
                             {option}
                         </option>
                     ))}
